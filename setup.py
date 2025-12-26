@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="jinjatomic",
-    version="0.0.1",
+    version="0.0.1b",
     description="A Datomic REST API client for Python reliant on jinja2 templates for writing stringified edn.",
     url="https://github.com/lukal-x/jinjatomic",
     author="Luka L",
