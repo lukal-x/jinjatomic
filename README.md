@@ -23,7 +23,7 @@ Jinjatomic exists in order to reduce complexity necessary to do even the simples
 
 ### Writing data
 
-A *prerequisite* for writing data to Datomic is to set up a schema, skip to [On conformity - when do the errors stop?](#on-conformity---when-do-the-errors-stop%3F) for info on comprehensive schema management or define your attributes one at a time via Jinjatomic's `transact` method (https://docs.datomic.com/schema/schema-reference.html#defining-schema).
+A *prerequisite* for writing data to Datomic is to set up a schema, skip to [On conformity - when do the errors stop?](#on-conformity---when-do-the-errors-stop) for info on comprehensive schema management or define your attributes one at a time via Jinjatomic's `transact` method (https://docs.datomic.com/schema/schema-reference.html#defining-schema).
 
 To write data use the `transact` method to send a transaction with datoms (https://docs.datomic.com/reference/rest.html#transact):
 
