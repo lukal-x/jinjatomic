@@ -5,6 +5,8 @@ from jinja2 import Template
 from requests import post, Response
 import edn_format as edn  # type: ignore[import-untyped]
 
+Datoms: typing.TypeAlias = edn.ImmutableList[edn.ImmutableList | edn.ImmutableDict]
+
 
 @dataclass
 class Jinjatomic:
@@ -23,7 +25,8 @@ class Jinjatomic:
             fq_alias=fq_alias,
         )
 
-    def transact(self, datoms: str, **kwargs) -> list[list | dict]:
+    def transact(self, datoms: str, **kwargs) -> Datoms | None:
+        """?"""
         payload: str = edn.dumps(
             edn.loads(Template("{:tx-data " + datoms + "}").render(dict(**kwargs)))
         )
@@ -36,8 +39,8 @@ class Jinjatomic:
         assert tx.status_code in range(200, 300), [tx.status_code, tx.text]
         return edn.loads(tx.text)
 
-    def query(self, query: str, **kwargs) -> list[list | dict]:
-        """ """
+    def query(self, query: str, **kwargs) -> Datoms | None:
+        """?"""
         _query: str = edn.dumps(edn.loads(Template(query).render(dict(**kwargs))))
         _args: str = edn.dumps(
             edn.loads(
